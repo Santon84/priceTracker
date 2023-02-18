@@ -5,7 +5,11 @@ const { getProductsList, getProductPrice } = require('./api/getData');
 const { savePrice } = require('./api/setData');
 const fetch = require("node-fetch");
 
+const express = require('express');
+const app = express();
 
+app.get('/', (req, res) => res.send('Home Page Route'));
+const port = 5000;
 
 
 const targetTags =  {
@@ -16,16 +20,6 @@ const targetTags =  {
 
 async function getList() {
   let productList = await getProductsList().then(res => res);
-
- 
-
-  
-
-
-
-
-
-  
   for (let product of productList) {
     
     let productPrice = 0;
@@ -33,14 +27,17 @@ async function getList() {
       productPrice = res;
       console.log('ProductPrice - ', productPrice);
     }).catch(err => console.log(err));
-    if (productPrice === 0) return;
+    if (!productPrice) {
+      console.log('Product price is empty, Can not get data from site');
+      return;
+    }
 
     await savePrice(product.id, productPrice).then(console.log('price added to database')).catch(err => console.log(err))
     
   }
 }
 
-var task = cron.schedule('* 7 * * *', () =>  {
+var task = cron.schedule('* * * * *', () =>  {
   console.log('Day ' + i);
   try {
     getList();
@@ -52,5 +49,5 @@ var task = cron.schedule('* 7 * * *', () =>  {
   i++;
 });
 console.log('server started');
-
 task.start();
+app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
