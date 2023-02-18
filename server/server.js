@@ -1,4 +1,4 @@
-const axios = require('axios');
+
 var i = 0;
 var cron = require('node-cron');
 const { getProductsList, getProductPrice } = require('./api/getData');
