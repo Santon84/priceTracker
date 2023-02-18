@@ -1,12 +1,12 @@
 const axios = require('axios');
 var i = 0;
 var cron = require('node-cron');
-const puppeteer = require('puppeteer');
-const userAgent = require('user-agents');
 const { getProductsList, getProductPrice } = require('./api/getData');
 const { savePrice } = require('./api/setData');
-var cloudscraper = require('cloudscraper');
 const fetch = require("node-fetch");
+
+
+
 
 const targetTags =  {
   ozon : {baseUrl: 'https://www.ozon.ru/api/composer-api.bx/page/json/v2?url=', name: '', price: '' },
@@ -51,5 +51,6 @@ var task = cron.schedule('* 7 * * *', () =>  {
   }
   i++;
 });
-console.log('server started')
+console.log('server started');
+
 task.start();

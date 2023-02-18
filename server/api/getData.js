@@ -1,9 +1,8 @@
 const fetch = require("node-fetch");
 const {db} = require('../firebase');
 const { collection, getDocs } = require('firebase/firestore');
-var axios = require('axios').default;
-var XMLHttpRequest = require('xhr2');
 
+require('dotenv').config()
 
 async function getProductsList() {
 
@@ -28,7 +27,7 @@ async function getProductPrice(url) {
     {
     "Content-Type": "application/json",
     "x-rapidapi-host": "scrapeninja.p.rapidapi.com",
-    "x-rapidapi-key": "baaa6f6dd2mshc89e7ab88a7c3e8p138eabjsn671aff0dea13"
+    "x-rapidapi-key": process.env.RAPIDAPI_KEY,
     },
     body: JSON.stringify(       {
     "url": url,
