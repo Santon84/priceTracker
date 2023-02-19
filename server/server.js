@@ -9,7 +9,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => res.send('Home Page Route'));
-const port = 5000;
+const PORT = 5000;
 
 
 const targetTags =  {
@@ -51,4 +51,4 @@ async function getList() {
 console.log('server started');
 //task.start();
 
-app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
+app.listen(PORT, () => console.log(`Server running on ${PORT}, http://localhost:${PORT}`));
