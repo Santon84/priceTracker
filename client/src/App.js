@@ -27,6 +27,7 @@ function App() {
     fetch(BASE_URL.ozon+url, {
       method: 'GET',
       mode: 'cors',
+      credentials:"include",
       headers: {
         'Content-Type': 'application/json'
       }
