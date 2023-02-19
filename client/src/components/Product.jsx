@@ -32,7 +32,7 @@ ChartJS.register(
 
 
 export default function Product({product}) {
-  const [prices] = useState([1399, 1399, 2499, 2399,2000, 1200,1200])
+  
   const [priceHistory,  setPriceHistory] = useState([]);
 
   const labels = priceHistory.map(item => item.date);
@@ -85,16 +85,16 @@ export default function Product({product}) {
   return (
     <div className="product">
       <div className="product__left">
-        <div className="image">
+        <div className="product__image">
           <img alt={product.name} src={product.image}></img>
         </div>
 
 
       </div>
       <div className="product__right">
-        <a href={product?.url}><h2 className="product__title">{product?.name}</h2></a>
+        <a className='product__link' href={product?.url}><h2 className="product__title">{product?.name}</h2></a>
         <p className="product__descr">{product?.descr?.substring(0,100)}</p>
-        <p className="product__price">{product?.startPrice} ₽</p>
+        <p className="product__price">Стартовая цена: <span>{product?.startPrice} ₽</span></p>
         <div className="data-conteiner">
           {priceHistory?.length ? <Line options={options} data={data} /> : null}
         </div>

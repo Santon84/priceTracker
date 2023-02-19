@@ -1,18 +1,21 @@
 .product {
     text-align: left;
     width: 100%;
-    max-width: 1080px;
+    //max-width: 1080px;
     display: flex;
-    h2 {
-        font-size: 14px;
-    }
+    flex-wrap: wrap;
+    
     .data-conteiner {
         width: 100%;
         max-height: 400px;
     }
+    
     &__left {
         width: 20%;
-        .image {
+        min-width: 220px;
+        max-width: 480px;
+        flex: 1;
+        .product__image {
             width: 100%;
             overflow: hidden;
             img {
@@ -23,8 +26,30 @@
         }
     }
     &__right {
-        padding-left: 20px;
+        padding-left: 1rem;
         width: 80%;
+    }
+    &__title {
+        //text-decoration: none;
+        font-weight: 700;
+        font-size: 1.3rem;
+        line-height: 1.2;
+        
+    }
+    &__link {
+        text-decoration: none;
+        color: #5d76cb;
+        &:hover {
+            color: #1faee9;
+        }
+    }
+    &__price {
+        font-size: 1.1rem;
+        font-weight: 600;
+        span {
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
     }
 
 }

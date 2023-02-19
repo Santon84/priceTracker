@@ -19,6 +19,10 @@ function App() {
 
   useEffect(() => {
     if (!url?.length) { return };
+    if (!~url.indexOf("ozon.ru")) { 
+      alert('Введите ссылку на товар с Ozon.ru');
+      return 
+    };
     
     fetch(BASE_URL.ozon+url)
     .then(response => {
@@ -111,7 +115,7 @@ function App() {
     <div className="App">
       
       <main>
-        <button className='add-product-btn' type='button' onClick={handleClick}>Добавить товар</button>
+        <button className='button add-product-btn' type='button' onClick={handleClick}>Добавить товар</button>
         {/* <button className='add-product-btn' type='button' onClick={handleAddDataClick}>Добавить данных</button> */}
         {products?.map((item,index) => <Product key={index} product={item}/>)}
       </main>
