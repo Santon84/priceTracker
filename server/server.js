@@ -1,6 +1,6 @@
 
 var i = 0;
-var cron = require('node-cron');
+//var cron = require('node-cron');
 const { getProductsList, getProductPrice } = require('./api/getData');
 const { savePrice } = require('./api/setData');
 const fetch = require("node-fetch");
@@ -37,17 +37,18 @@ async function getList() {
   }
 }
 
-var task = cron.schedule('* * * * *', () =>  {
-  console.log('Day ' + i);
-  try {
-    getList();
-  }
-  catch(err) {
-    console.log('Problems with getting data from Firestore');
-    console.log(err);
-  }
-  i++;
-});
+// var task = cron.schedule('* * * * *', () =>  {
+//   console.log('Day ' + i);
+//   try {
+//     getList();
+//   }
+//   catch(err) {
+//     console.log('Problems with getting data from Firestore');
+//     console.log(err);
+//   }
+//   i++;
+// });
 console.log('server started');
-task.start();
+//task.start();
+
 app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
