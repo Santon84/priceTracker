@@ -24,7 +24,13 @@ function App() {
       return 
     };
     
-    fetch(BASE_URL.ozon+url)
+    fetch(BASE_URL.ozon+url, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
     .then(response => {
       if (response.status === 200) {
       //console.log(response);
