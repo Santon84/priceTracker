@@ -109,7 +109,7 @@ function App() {
 
   function handleClick() {
    
-      setUrl(prompt('Введите Url на товар', ''))
+      setUrl(prompt('Введите Url на товар с OZON', ''))
   
   }
   
