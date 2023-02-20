@@ -25,7 +25,7 @@ function App() {
     };
     
     fetch(BASE_URL.ozon+url, {
-      referrer: "https://pricetracker-nu.vercel.app",
+      referrer: "about:client",
       referrerPolicy: 'strict-origin-when-cross-origin',
       body: null,
       method: 'GET',
