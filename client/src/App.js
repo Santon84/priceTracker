@@ -44,8 +44,8 @@ function App() {
       }
     })
     .then(json => {
-      console.log(JSON.parse(json.seo.script[0].innerHTML));
-      const newProduct = JSON.parse(json.seo.script[0].innerHTML);
+      console.log(JSON.parse(json?.seo.script[0].innerHTML));
+      const newProduct = JSON.parse(json?.seo.script[0].innerHTML);
       console.log(newProduct);
       saveProduct(newProduct);
       //setNewProduct({...JSON.parse(json.seo.script[0].innerHTML)});
