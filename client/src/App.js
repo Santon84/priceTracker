@@ -26,14 +26,14 @@ function App() {
     console.log('starting fetch url');
     fetch(BASE_URL.ozon+url, {
       referrerPolicy: 'strict-origin-when-cross-origin',
+      referrer: '',
       keepalive: true,
-      body: null,
       method: 'GET',
       mode: 'cors',
       credentials: 'include',
       headers: {
         
-        "accept": "*/*",
+        "Accept": "*/*",
         "Content-Type": "application/json",
       }
     })
