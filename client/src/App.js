@@ -37,7 +37,8 @@ function App() {
         "content-type": "application/json",
         "sec-fetch-dest": "empty",
         "sec-fetch-mode": "cors",
-        "sec-fetch-site": "cross-site"
+        "sec-fetch-site": "cross-site",
+        
       }
     })
     .then(response => {
