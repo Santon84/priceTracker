@@ -30,12 +30,13 @@ function App() {
       keepalive: true,
       method: 'GET',
       mode: 'cors',
-      credentials: 'include',
+      credentials: 'same-origin',
       headers: {
         
         "Accept": "*/*",
         "Content-Type": "application/json",
-      }
+      },
+      timeout: 5000
     })
     .then(response => {
       if (response.status === 200) {
