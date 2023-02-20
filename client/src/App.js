@@ -29,14 +29,12 @@ function App() {
       referrerPolicy: 'strict-origin-when-cross-origin',
       body: null,
       method: 'GET',
-      mode: 'cors',
+      mode: 'no-cors',
       credentials: 'include',
       headers: {
         "accept": "*/*",
         "accept-language": "ru,en;q=0.9,la;q=0.8,de;q=0.7,bg;q=0.6,ro;q=0.5",
-        "content-type": "application/json",
-        "sec-fetch-dest": "empty",
-        "sec-fetch-mode": "cors",
+        "Content-Type": "application/json",
         "sec-fetch-site": "cross-site",
         
       }
