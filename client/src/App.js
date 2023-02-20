@@ -29,10 +29,10 @@ function App() {
       keepalive: true,
       body: null,
       method: 'GET',
-      // mode: 'same-origin',
+      mode: 'cors',
       credentials: 'include',
       headers: {
-        "Access-Control-Allow-Origin": "*",
+        
         "accept": "*/*",
         "Content-Type": "application/json",
       }
