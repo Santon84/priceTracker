@@ -68,7 +68,6 @@ function App() {
       const newProduct = JSON.parse(json?.seo.script[0].innerHTML);
       console.log(newProduct);
       saveProduct(newProduct);
-      //setNewProduct({...JSON.parse(json.seo.script[0].innerHTML)});
       
     })
     .catch(err => console.log(err))
@@ -76,12 +75,6 @@ function App() {
 
   },[url])
   
-  // useEffect(() => {
-  //   if (!products.length) return;
-  //   console.log(products);
-  //   localStorage.setItem('products', JSON.stringify(products));
-    
-  // },[products]);
 
   useEffect(() => {
     console.log('App');
@@ -116,35 +109,10 @@ function App() {
 
   function handleClick() {
    
-      setUrl(prompt('Введите Url на товар', null))
+      setUrl(prompt('Введите Url на товар', ''))
   
   }
-  async function handleAddDataClick() {
-
-    const collectionRef = collection(db,'products', '1C0ZORAMuwF1F2pDad02', 'history');
-      await addDoc(collectionRef, {
-          date: '03-02-2023',
-          price: 1300
-      });
-      await addDoc(collectionRef, {
-          date: '04-02-2023',
-          price: 1500
-      });
-      await addDoc(collectionRef, {
-          date: '05-02-2023',
-          price: 1700
-      });
-      await addDoc(collectionRef, {
-          date: '06-02-2023',
-          price: 1500
-      });
-      await addDoc(collectionRef, {
-          date: '07-02-2023',
-          price: 1100
-      });
-
-
-  }
+  
   return (
     <div className="App">
       

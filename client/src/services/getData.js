@@ -5,7 +5,6 @@ import { collection, getDocs, doc, getDoc } from 'firebase/firestore';
 
 
 export const getProducts = async() => {
-    //setIsLoading(true);
     const todoCollection = collection(db, 'products');
     
     const toDoSnapshot = await getDocs(todoCollection);
@@ -17,7 +16,6 @@ export const getProducts = async() => {
 }
 
 export const getProductPriceHistory = async(productId) => {
-    //setIsLoading(true);
     const todoCollection = collection(db, 'products', productId, 'history');
     
     const toDoSnapshot = await getDocs(todoCollection);
@@ -31,7 +29,6 @@ export const getProductPriceHistory = async(productId) => {
 
 
 export const getProduct = async(productId) => {
-    //setIsLoading(true);
     
 
     const docRef = doc(db, "products", productId);
