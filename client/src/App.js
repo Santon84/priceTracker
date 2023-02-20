@@ -23,13 +23,13 @@ function App() {
       alert('Введите ссылку на товар с Ozon.ru');
       return 
     };
-    
+    console.log('starting fetch url');
     fetch(BASE_URL.ozon+url, {
       referrerPolicy: 'strict-origin-when-cross-origin',
       
       body: null,
       method: 'GET',
-      mode: 'no-cors',
+      mode: 'same-origin',
       credentials: 'include',
       headers: {
         "Access-Control-Allow-Origin": "*",
@@ -50,7 +50,9 @@ function App() {
       saveProduct(newProduct);
       //setNewProduct({...JSON.parse(json.seo.script[0].innerHTML)});
       
-    }).finally(setUrl(null));
+    })
+    .catch(err => console.log(err))
+    .finally(setUrl(null));
 
   },[url])
   
