@@ -25,18 +25,16 @@ function App() {
     };
     
     fetch(BASE_URL.ozon+url, {
-      referrer: "about:client",
       referrerPolicy: 'strict-origin-when-cross-origin',
+      
       body: null,
       method: 'GET',
       mode: 'no-cors',
       credentials: 'include',
       headers: {
+        "Access-Control-Allow-Origin": "*",
         "accept": "*/*",
-        "accept-language": "ru,en;q=0.9,la;q=0.8,de;q=0.7,bg;q=0.6,ro;q=0.5",
         "Content-Type": "application/json",
-        "sec-fetch-site": "cross-site",
-        
       }
     })
     .then(response => {
