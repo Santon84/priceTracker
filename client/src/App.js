@@ -119,7 +119,7 @@ function App() {
       <main>
         <button className='button add-product-btn' type='button' onClick={handleClick}>Добавить товар</button>
         {/* <button className='add-product-btn' type='button' onClick={handleAddDataClick}>Добавить данных</button> */}
-        {products?.map((item,index) => <Product key={index} product={item}/>)}
+        {products?.map((item,index) => <Product key={index} setProducts={setProducts} product={item}/>)}
       </main>
 
 

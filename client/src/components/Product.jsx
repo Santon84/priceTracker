@@ -14,7 +14,7 @@ import { Line } from 'react-chartjs-2';
 import { useEffect } from 'react';
 import { getProductPriceHistory } from '../services/getData';
 import dayjs from 'dayjs';
-
+import { deleteProduct } from '../services/setData';
 
 ChartJS.register(
   CategoryScale,
@@ -31,7 +31,7 @@ ChartJS.register(
 
 
 
-export default function Product({product}) {
+export default function Product({product , setProducts}) {
   
   const [priceHistory,  setPriceHistory] = useState([]);
 
@@ -82,13 +82,22 @@ export default function Product({product}) {
     })
   },[product.id]) 
 
+
+  async function handleDeleteClick(){
+
+    if (window.confirm('Точно удалить задачу?')) {
+      await deleteProduct(product.id);
+      setProducts(prev => prev.filter(item => item.id !== product.id));
+    }
+  }
+
   return (
     <div className="product">
       <div className="product__left">
         <div className="product__image">
           <img alt={product.name} src={product.image}></img>
         </div>
-
+        <button onClick={handleDeleteClick}className='product__button_delete button'>Удалить</button>
 
       </div>
       <div className="product__right">
@@ -99,6 +108,7 @@ export default function Product({product}) {
           {priceHistory?.length ? <Line options={options} data={data} /> : null}
         </div>
       </div>
+      
     </div>
   )
 }

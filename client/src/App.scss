@@ -5,17 +5,19 @@
 .App {
     text-align: center;
   
-    .button {
-      all: unset;
-      background-color: #7851a9;
-      padding: 20px 40px;
-      cursor: pointer;
-      color: #FFF;
-      &:hover {
-        background-color: #1faee9;
-      }
-    }
+    
     .add-product-btn {
       margin: 2rem 0;
+    }
+  }
+
+  .button {
+    border: none;
+    background-color: #7851a9;
+    padding: 20px 40px;
+    cursor: pointer;
+    color: #FFF;
+    &:hover {
+      background-color: #1faee9;
     }
   }
