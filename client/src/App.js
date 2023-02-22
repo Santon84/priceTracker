@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import {db} from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import dayjs from 'dayjs';
+import Modal from './components/modal/Modal';
 
 
 
@@ -16,7 +17,7 @@ const BASE_URL = {ozon: 'https://www.ozon.ru/api/composer-api.bx/page/json/v2?ur
 function App() {
   const [url, setUrl] = useState(null);
   const [products, setProducts] = useState([]);
-
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     if (!url?.length) { return };
     if (!~url.indexOf("ozon.ru")) { 
@@ -108,8 +109,8 @@ function App() {
   }
 
   function handleClick() {
-   
-      setUrl(prompt('Введите Url на товар с OZON', ''))
+      setShowModal(true);
+      //setUrl(prompt('Введите Url на товар с OZON', ''))
   
   }
   
@@ -120,6 +121,7 @@ function App() {
         <button className='button add-product-btn' type='button' onClick={handleClick}>Добавить товар</button>
         {/* <button className='add-product-btn' type='button' onClick={handleAddDataClick}>Добавить данных</button> */}
         {products?.map((item,index) => <Product key={index} setProducts={setProducts} product={item}/>)}
+        {showModal && <Modal setShowModal={setShowModal} setUrl={setUrl}/>}      
       </main>
 
 

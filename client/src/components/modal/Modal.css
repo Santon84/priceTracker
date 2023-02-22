@@ -1,0 +1,164 @@
+.modal {
+  box-sizing: border-box;
+  font-size: 18px;
+  color: #000;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  z-index: 4000;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+}
+.modal .modal-window {
+  max-width: 400px;
+  margin: 65px auto;
+  background-color: #ffffff;
+  padding: 40px;
+  box-sizing: border-box;
+  overflow: auto;
+  position: relative;
+  border-radius: 20px;
+}
+.modal .modal-window .modal-conteiner h2 {
+  margin-bottom: 10px;
+}
+.modal .modal-window .modal-conteiner form {
+  display: flex;
+  gap: 10px;
+  text-align: left;
+  flex-direction: column;
+}
+.modal .modal-window .modal-conteiner ul {
+  list-style: none;
+  position: relative;
+}
+.modal .modal-window .modal-conteiner ul li {
+  height: 20px;
+  display: flex;
+  align-items: center;
+}
+.modal .modal-window .modal-conteiner ul li .delete-file-btn {
+  margin-left: 5px;
+  cursor: pointer;
+  display: none;
+  width: 24px;
+  height: 24px;
+  font-size: 25px;
+  line-height: 1;
+  border-radius: 30px;
+  border: none;
+}
+.modal .modal-window .modal-conteiner ul li:hover button {
+  display: inline;
+}
+.modal .modal-window .modal-conteiner input[type="submit"] {
+  cursor: pointer;
+}
+.modal .modal-window .modal-conteiner input {
+  padding: 15px 10px;
+  border-radius: 10px;
+  border: none;
+  background-color: #e5e4e4;
+}
+.modal .modal-window .modal-conteiner input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+@media (max-width: 640px) {
+  .modal .modal-window .modal-conteiner input[type='checkbox'] {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (max-width: 640px) {
+  .modal .modal-window .modal-conteiner input[type='date'] {
+    height: 30px;
+  }
+}
+.modal .modal-window .modal-conteiner label[for='active_check'] {
+  cursor: pointer;
+}
+.modal .modal-window .modal-conteiner textarea {
+  padding: 15px 10px;
+  height: 120px;
+  border-radius: 10px;
+  border: none;
+  background-color: #e5e4e4;
+}
+.modal .modal-window .modal-conteiner .checkbox-conteiner {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  margin-top: 10px;
+}
+.modal .modal-window .modal-conteiner .filelist {
+  font-family: 'Raleway', sans-serif;
+  font-size: 12px;
+}
+@media (max-width: 640px) {
+  .modal .modal-window .modal-conteiner input[type="text"],
+  .modal .modal-window .modal-conteiner input[type="date"],
+  .modal .modal-window .modal-conteiner input[type="file"],
+  .modal .modal-window .modal-conteiner textarea {
+    font-size: 16px;
+  }
+}
+.modal .modal-window .modal-conteiner .modal-btn-conteiner {
+  display: flex;
+  gap: 10px;
+}
+.modal .modal-window .modal-conteiner .modal-btn-conteiner .button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  padding: 0;
+}
+.modal .modal-window .modal-conteiner .modal-btn-conteiner .button:hover {
+  background-color: #bebebe;
+  color: #fff;
+}
+@media (max-width: 640px) {
+  .modal .modal-window .modal-conteiner .modal-btn-conteiner .button {
+    margin-right: 10px;
+  }
+}
+.modal .modal-window .modal-conteiner .modal-btn-conteiner .modal-primary-btn {
+  background-color: #4F59C7;
+  color: #fff;
+}
+.modal .modal-window .modal-conteiner .modal-btn-conteiner .modal-primary-btn:hover {
+  background-color: blue ;
+}
+.modal .modal-close-button {
+  font-size: 60px;
+  background-color: transparent;
+  color: #292019;
+  border: none;
+  text-align: right;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  line-height: 40px;
+}
+.modal .modal-close-button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+@media screen and (max-width: 640px) {
+  input,
+  textarea {
+    margin-top: 10px;
+  }
+}
