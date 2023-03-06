@@ -18,6 +18,7 @@ function App() {
   const [url, setUrl] = useState(null);
   const [products, setProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [targetPrice, setTargetPrice] = useState(null);
   useEffect(() => {
     if (!url?.length) { return };
     if (!~url.indexOf("ozon.ru")) { 
@@ -57,11 +58,15 @@ function App() {
     })
       .then(response => {
       if (response.status === 200) {
-      console.log(response);
+      // console.log(response);
       return response.json();
       }
     })
     .then(json => {
+        // console.log('json');
+        // console.log(json);
+        // console.log('parse')
+        console.log(JSON.parse(json.body))
         return JSON.parse(json.body);
     })
     .then(json => {
@@ -95,6 +100,7 @@ function App() {
           descr:product.description.substring(0,200) || '',
           image:product.image || '',
           startPrice: parseInt(product.offers.price) || 0,
+          targetPrice: targetPrice,
           url: product.offers.url || '',
           creationDate: dayjs(Date()).format('YYYY-MM-DD HH:mm:ss')
       });
@@ -121,7 +127,7 @@ function App() {
         <button className='button add-product-btn' type='button' onClick={handleClick}>Добавить товар</button>
         {/* <button className='add-product-btn' type='button' onClick={handleAddDataClick}>Добавить данных</button> */}
         {products?.map((item,index) => <Product key={index} setProducts={setProducts} product={item}/>)}
-        {showModal && <Modal setShowModal={setShowModal} setUrl={setUrl}/>}      
+        {showModal && <Modal setShowModal={setShowModal} setUrl={setUrl} setTargetPrice={setTargetPrice}/>}      
       </main>
 
 

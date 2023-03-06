@@ -14,7 +14,8 @@ import Button from './Button';
 
 function Modal({
     setUrl,
-    setShowModal
+    setShowModal,
+    setTargetPrice
 }) {
 const urlRef = useRef();
 const priceRef = useRef();
@@ -33,9 +34,10 @@ const [isLoading, setIsLoading] = useState(false);
  async function handleSubmit(e) {
     setIsLoading(true);
     e.preventDefault();
-
+    await setTargetPrice(priceRef.current.value);
     await setUrl(urlRef.current.value);
     await setShowModal(false);
+    
     setIsLoading(false);
 
  }

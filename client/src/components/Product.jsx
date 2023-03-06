@@ -85,7 +85,7 @@ export default function Product({product , setProducts}) {
 
   async function handleDeleteClick(){
 
-    if (window.confirm('Точно удалить задачу?')) {
+    if (window.confirm('Точно удалить товар?')) {
       await deleteProduct(product.id);
       setProducts(prev => prev.filter(item => item.id !== product.id));
     }
@@ -104,6 +104,7 @@ export default function Product({product , setProducts}) {
         <a className='product__link' href={product?.url}><h2 className="product__title">{product?.name}</h2></a>
         <p className="product__descr">{product?.descr?.substring(0,100)}</p>
         <p className="product__price">Стартовая цена: <span>{product?.startPrice} ₽</span></p>
+        <p className="product__price">Желаемая цена: <span>{product?.targetPrice} ₽</span></p>
         <div className="data-conteiner">
           {priceHistory?.length ? <Line options={options} data={data} /> : null}
         </div>
